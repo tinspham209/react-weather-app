@@ -1,0 +1,47 @@
+.Forecast {
+  width: 50%;
+  height: 30%;
+  margin: auto;
+  padding: 1%;
+  font-size: 1.2rem;
+  border: 1px solid #ccc;
+}
+
+
+.ForecastHeader span {
+  display: block;
+}
+
+.ForecastHeader span:first-child {
+  font-size: 1.5rem;
+}
+
+.Forecast .row {
+  overflow: hidden;
+  margin: 1.5rem auto;
+}
+
+.Forecast .row .col {
+  float: left;
+  width: 65%;
+}
+
+.Forecast .row .col:last-child {
+     padding-top: 2rem;
+     font-size: 8rem;
+     width: 30%;
+}
+
+.Forecast .row .col h2 {
+ font-size: 3.75rem;
+}
+
+.Forecast .row .col h4 span {
+     padding-right: 4%;
+     font-size: 1rem;
+}
+
+.Forecast .sologan p{
+     text-align: center;
+     font-size: 1.5rem;
+}

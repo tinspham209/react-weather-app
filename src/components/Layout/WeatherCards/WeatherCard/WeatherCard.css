@@ -1,0 +1,28 @@
+.WeatherCard{
+     width: 100%;
+     margin: auto;
+     font-size: 1.2rem;
+     
+}
+
+.WeatherCard .row {
+     overflow: hidden;
+     margin: 1rem auto;
+     align-items: stretch;
+     display: flex;
+}
+
+.WeatherCard .row .col{
+     text-align: center;
+}
+
+.WeatherCard .row .col:first-child{
+     text-align: left;
+     width: 38%;
+}
+
+.WeatherCard .row .col:last-child{
+     text-align: right;
+     width: 38%;
+
+}
