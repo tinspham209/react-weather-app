@@ -14,7 +14,7 @@ const forecastPerDay = props => {
           <span>{props.day}</span>
         </div>
         <div className={classes.col} style={{flexGrow: '2'}}>
-          <div className={icon} ></div>
+          <div className={icon} style={{color: 'purple'}} ></div>
         </div>
         <div className={classes.col} style={{flexGrow: '4'}}>
           <span>
