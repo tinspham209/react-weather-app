@@ -1,30 +1,38 @@
 import React from "react";
-import "./Forecast.css";
+import ForecastPerDay from "./ForecastPerDay/ForecastPerDay";
+import classes from "./Forecast.css";
 const forecast = props => {
-  return (
-    <div className="Forecast">
-      <div className="ForecastHeader">
-        <span>Hue, VN</span>
-        <span>Saturday, 4:43PM, Few Clouds</span>
-      </div>
+  console.log("props.currentForecast-Forecast", props.currentForecast);
 
-      <div className="row">
-        <div className="col">
-          <h2>29*C</h2>
-          <h4 className="">
-            <span className="wi wi-strong-wind jss286 jss275"> 21km/h Winds</span>
-            <span className="wi wi-humidity jss286 jss275"> 58% Humidity</span>
-          </h4>
-        </div>
-        <div className="col">
-          <div className="wi wi-day-sunny-overcast jss286"></div>
-        </div>
-      </div>
-      <div className="sologan">
-        <p>
-          Great day for a bit of laundry and maybe a nice picnic date later :)
-        </p>
-      </div>
+  let forecastPerDay = Object.keys(props.currentForecast).map(index => {
+    return [...Array(props.currentForecast[index])].map(object => {
+      const dt = object.dt;
+      const date = new Date(dt * 1000);
+      const weekday = new Array(7);
+      weekday[0] = "Sunday";
+      weekday[1] = "Monday";
+      weekday[2] = "Tuesday";
+      weekday[3] = "Wednesday";
+      weekday[4] = "Thursday";
+      weekday[5] = "Friday";
+      weekday[6] = "Saturday";
+      const day = weekday[date.getDay()];
+      return (
+        <li key={index}>
+          <ForecastPerDay
+            day={day}
+            lowTemp={object.main.temp_min}
+            highTemp={object.main.temp_max}
+            id={object.weather[0].id}
+          />
+        </li>
+      );
+    });
+  });
+
+  return (
+    <div className={classes.Forecast}>
+      <ul>{forecastPerDay}</ul>
     </div>
   );
 };

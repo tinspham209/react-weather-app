@@ -1,0 +1,33 @@
+.Search {
+  width: 40%;
+  margin: auto;
+  margin-bottom: 2%;
+  padding-top: 10%;
+  text-align: center;
+}
+
+.Search input {
+  display: flex;
+}
+
+.Search input[type="text"] {
+  text-indent: 17px;
+  background-image: url(../../../assests/search.png);
+  background-position: 7px 7px;
+  background-repeat: no-repeat;
+  padding-left: 5%;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  outline: none;
+  display: block;
+  width: 100%;
+  padding: 7px;
+  border: none;
+  border-bottom: 1px solid #ddd;
+  background: transparent;
+  margin-bottom: 10px;
+  height: 50%;
+}

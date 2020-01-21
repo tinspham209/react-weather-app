@@ -1,0 +1,47 @@
+.Weather {
+  width: 50%;
+  height: 30%;
+  margin: auto;
+  padding: 1%;
+  font-size: 1.2rem;
+  border: 1px solid #ccc;
+}
+
+
+.WeatherHeader span {
+  display: block;
+}
+
+.WeatherHeader span:first-child {
+  font-size: 1.5rem;
+}
+
+.Weather .row {
+  overflow: hidden;
+  margin: 1.5rem auto;
+}
+
+.Weather .row .col {
+  float: left;
+  width: 65%;
+}
+
+.Weather .row .col:last-child {
+     padding-top: 2rem;
+     font-size: 8rem;
+     width: 30%;
+}
+
+.Weather .row .col h2 {
+ font-size: 3.75rem;
+}
+
+.Weather .row .col h4 span {
+     padding-right: 4%;
+     font-size: 1rem;
+}
+
+.Weather .sologan p{
+     text-align: center;
+     font-size: 1.5rem;
+}

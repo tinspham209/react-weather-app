@@ -1,47 +1,21 @@
 .Forecast {
   width: 50%;
-  height: 30%;
+  height: 40%;
   margin: auto;
   padding: 1%;
   font-size: 1.2rem;
   border: 1px solid #ccc;
 }
 
-
-.ForecastHeader span {
-  display: block;
+.Forecast ul {
+  list-style-type: none;
+  padding-left: 0px;
+}
+.Forecast ul li {
+  border-bottom: 1px solid #ccc;
 }
 
-.ForecastHeader span:first-child {
-  font-size: 1.5rem;
-}
-
-.Forecast .row {
-  overflow: hidden;
-  margin: 1.5rem auto;
-}
-
-.Forecast .row .col {
-  float: left;
-  width: 65%;
-}
-
-.Forecast .row .col:last-child {
-     padding-top: 2rem;
-     font-size: 8rem;
-     width: 30%;
-}
-
-.Forecast .row .col h2 {
- font-size: 3.75rem;
-}
-
-.Forecast .row .col h4 span {
-     padding-right: 4%;
-     font-size: 1rem;
-}
-
-.Forecast .sologan p{
-     text-align: center;
-     font-size: 1.5rem;
+.Forecast ul li:last-child {
+  padding-bottom: 1%;
+  border: none;
 }
