@@ -3,6 +3,8 @@ import Search from "../../components/Layout/Search/Search";
 import Weather from "../../components/Layout/Weather/Weather";
 import WeatherCards from "../../components/Layout/Forecast/Forecast";
 import Spinner from "../../components/UI/Spinner/Spinner";
+import withErrorHandler from "../../hoc/withErrorHandler/withErrorHandler";
+import axios from "../../axios-orders";
 const AppLayout = props => {
   const [currentWeather, setCurrentWeather] = useState(null);
   const [currentForecast, setCurrentForecast] = useState(null);
@@ -60,10 +62,13 @@ const AppLayout = props => {
   let error = isError ? <p> Can not get currentWeather</p> : <Spinner />;
   return (
     <React.Fragment>
-      <Search onLoadWeather={loadWeatherHandler} onLoadForecast={loadForecastHandler} />
+      <Search
+        onLoadWeather={loadWeatherHandler}
+        onLoadForecast={loadForecastHandler}
+      />
       {weather}
     </React.Fragment>
   );
 };
 
-export default AppLayout;
+export default withErrorHandler(AppLayout, axios);
