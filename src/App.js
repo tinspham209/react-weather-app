@@ -1,9 +1,12 @@
 import React from "react";
 import AppLayout from "./containers/AppLayout/AppLayout";
+import Layout from "./hoc/Layout/Layout";
 function App() {
   return (
     <div>
-      <AppLayout />
+      <Layout>
+        <AppLayout />
+      </Layout>
     </div>
   );
 }
