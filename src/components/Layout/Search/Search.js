@@ -32,10 +32,6 @@ const Search = props => {
           .get(`https://api.openweathermap.org/data/2.5/forecast/${query}`)
           .then(responseData => {
             const forecast = [];
-            console.log(
-              "responseData.data.list.length",
-              responseData.data.list.length
-            );
             for (let i = 0; i < responseData.data.list.length; i += 8) {
               forecast.push(responseData.data.list[i + 4]);
             }
