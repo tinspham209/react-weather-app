@@ -1,17 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import classes from "./Layout.css";
 import Toolbar from "../../components/Navigation/Toolbar/Toolbar";
 const Layout = props => {
-  /*{
-  const [sideDrawerIsVisible, setSideDrawerIsVisible] = useState(false);
-
-  const sideDrawerToggleHandler = () => {
-    setSideDrawerIsVisible(!sideDrawerIsVisible);
-  };
-  const sideDrawerClosedHandler = () => {
-    setSideDrawerIsVisible(false);
-  };
-  }*/
   return (
     <React.Fragment>
       <Toolbar />
