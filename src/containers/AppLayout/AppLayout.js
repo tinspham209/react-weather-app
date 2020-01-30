@@ -3,14 +3,20 @@ import Search from "../../components/Layout/Search/Search";
 import Weather from "../../components/Layout/Weather/Weather";
 import WeatherCards from "../../components/Layout/Forecast/Forecast";
 import Spinner from "../../components/UI/Spinner/Spinner";
+import ModalAbout from "../../components/About/Modal/Modal";
 import withErrorHandler from "../../hoc/withErrorHandler/withErrorHandler";
 import axios from "../../axios-orders";
+import About from "../../components/About/About";
 const AppLayout = props => {
   const [currentWeather, setCurrentWeather] = useState(null);
   const [currentForecast, setCurrentForecast] = useState(null);
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [show, setShow] = useState(true);
 
+  const toggleDrawerHandler = () => {
+    setShow(!show);
+  };
   /*
   useEffect(() => {
     setIsLoading(true);
@@ -52,6 +58,9 @@ const AppLayout = props => {
   if (currentWeather && !isLoading) {
     weather = (
       <React.Fragment>
+        <ModalAbout show={show} modalClosed={toggleDrawerHandler}>
+          <About />
+        </ModalAbout>
         <Weather currentWeather={currentWeather} />
         <WeatherCards currentForecast={currentForecast} />
       </React.Fragment>
