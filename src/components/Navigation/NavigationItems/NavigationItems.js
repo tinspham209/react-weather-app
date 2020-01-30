@@ -1,14 +1,19 @@
-import React from 'react'
-import classes from "./NavigationItems.css"
+import React from "react";
+import classes from "./NavigationItems.css";
 
 import NavigationItemLink from "./NavigationItemLink/NavigationItemLink";
 import NavigationItemParagraph from "./NavigationItemParagraph/NavigationItemParagraph";
-const navigationItems = (props) => (
-     <ul className={classes.NavigationItems} >
-          {/* <NavigationItem link="/">About</NavigationItem> */}
-          <NavigationItemParagraph >About</NavigationItemParagraph>
-          <NavigationItemLink link="/"> GITHUB </NavigationItemLink>
-     </ul>
-)
+const NavigationItems = props => {
 
-export default navigationItems;
+  return (
+    <ul className={classes.NavigationItems}>
+      <NavigationItemParagraph>About</NavigationItemParagraph>
+      <NavigationItemLink link="https://github.com/quay189/">
+        {" "}
+        GITHUB{" "}
+      </NavigationItemLink>
+    </ul>
+  );
+};
+
+export default NavigationItems;
