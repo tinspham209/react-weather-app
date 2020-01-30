@@ -33,3 +33,10 @@ export const getIcon = id => {
 export const getRecommendation = id => {
   return id.recommendation;
 };
+
+export const updateObject = (oldObject, updatedProperties) => {
+     return {
+         ...oldObject,
+         ...updatedProperties
+     };
+ };
