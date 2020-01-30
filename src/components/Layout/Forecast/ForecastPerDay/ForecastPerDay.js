@@ -1,11 +1,12 @@
 import React from "react";
 import classes from "./ForecastPerDay.css";
 import * as weatherIcons from "../../../../database/icons.json"
+import {getIcon} from '../../../../shared/utility';
 const forecastPerDay = props => {
   const lowTemp = Math.floor(props.lowTemp);
   const highTemp = Math.floor(props.highTemp);
-  const prefix = "wi wi-";
-  const icon = prefix + weatherIcons.default[props.id].icon;
+  
+  const icon = getIcon(weatherIcons.default[props.id]);
 
   return (
     <div className={classes.ForecastPerDay}>

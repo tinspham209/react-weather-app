@@ -9,12 +9,11 @@ const forecast = props => {
     return [...Array(props.currentForecast[index])].map(object => {
       const daytime = object.dt;
       const date = getDate(daytime);
-      const day = getWeekday(date);
       
       return (
         <li key={index}>
           <ForecastPerDay
-            day={day}
+            day={getWeekday(date)}
             lowTemp={object.main.temp_min}
             highTemp={object.main.temp_max}
             id={object.weather[0].id}
