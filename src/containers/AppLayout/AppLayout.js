@@ -1,80 +1,56 @@
-import React, { useState, useCallback } from "react";
+import React, { useCallback, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import axios from "../../axios-orders";
+import withErrorHandler from "../../hoc/withErrorHandler/withErrorHandler";
+
 import Search from "../../components/Layout/Search/Search";
 import Weather from "../../components/Layout/Weather/Weather";
-import WeatherCards from "../../components/Layout/Forecast/Forecast";
-import Spinner from "../../components/UI/Spinner/Spinner";
+import Forecast from "../../components/Layout/Forecast/Forecast";
 import ModalAbout from "../../components/About/Modal/Modal";
-import withErrorHandler from "../../hoc/withErrorHandler/withErrorHandler";
-import axios from "../../axios-orders";
 import About from "../../components/About/About";
+import Spinner from "../../components/UI/Spinner/Spinner";
+
+import * as actions from "../../store/actions/AppThunk";
+
 const AppLayout = props => {
-  const [currentWeather, setCurrentWeather] = useState(null);
-  const [currentForecast, setCurrentForecast] = useState(null);
-  const [isError, setIsError] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-  const [show, setShow] = useState(true);
+  const dispatch = useDispatch();
 
-  const toggleDrawerHandler = () => {
-    setShow(!show);
-  };
-  /*
-  useEffect(() => {
-    setIsLoading(true);
-    axios
-      .get(
-        // "https//:api.openweathermap.org/data/2.5/weather/?q=Hanoi&units=metric&APPID=70074b1322dfa5700b4a6eac6922484f"
-        `https://api.openweathermap.org/data/2.5/weather/?q=Hanoi&units=metric&APPID=baedc2f2f31b7b3303e5d42d88d283c3`
-        )
-      .then(responseData => {
-        // this.setState({ currentWeather: responseData.data, loading: false });
-        setCurrentWeather(responseData.data);
-        setIsLoading(false);
-      })
-      .catch(error => {
-        setIsError(error);
-        setIsLoading(true);
-      });
-  }, []);
-*/
+  const currentWeather = useSelector(state => state.currentWeather);
+  const currentForecast = useSelector(state => state.currentForecast);
+  // eslint-disable-next-line
+  const error = useSelector(state => state.error);
+  const loading = useSelector(state => state.loading);
+  const showModalAbout = useSelector(state => state.showModalAbout);
 
-  const loadWeatherHandler = useCallback((filteredWeather, loading, error) => {
-    setCurrentWeather(filteredWeather);
-    console.log("filteredWeather-AppLayout", filteredWeather);
-    setIsLoading(loading);
-    setIsError(error);
-  }, []);
-
-  const loadForecastHandler = useCallback(
-    (filteredForecast, loading, error) => {
-      setCurrentForecast(filteredForecast);
-      console.log("filteredForecast-AppLayout", filteredForecast);
-      setIsLoading(loading);
-      setIsError(error);
-    },
-    []
+  const toggleDrawerHandler = useCallback(
+    () => dispatch(actions.showModalAbout(!showModalAbout)),
+    [dispatch, showModalAbout]
   );
+  const onInitData = useCallback(() => dispatch(actions.initData()), [
+    dispatch
+  ]);
+
+  //componentDidMount
+  useEffect(() => {
+    onInitData();
+  }, [onInitData]);
 
   let weather = <Spinner />;
-  if (currentWeather && !isLoading) {
+  if (currentWeather && currentForecast && !loading) {
     weather = (
       <React.Fragment>
-        <ModalAbout show={show} modalClosed={toggleDrawerHandler}>
+        <ModalAbout show={showModalAbout} modalClosed={toggleDrawerHandler}>
           <About />
         </ModalAbout>
         <Weather currentWeather={currentWeather} />
-        <WeatherCards currentForecast={currentForecast} />
+        <Forecast currentForecast={currentForecast} />
       </React.Fragment>
     );
   }
 
-  // eslint-disable-next-line
-  let error = isError ? <p> Can not get currentWeather</p> : <Spinner />;
   return (
     <React.Fragment>
-      <Search
-        onLoadWeather={loadWeatherHandler}
-        onLoadForecast={loadForecastHandler}
-      />
+      <Search />
       {weather}
     </React.Fragment>
   );

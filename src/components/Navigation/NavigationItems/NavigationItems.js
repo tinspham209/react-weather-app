@@ -4,7 +4,6 @@ import classes from "./NavigationItems.css";
 import NavigationItemLink from "./NavigationItemLink/NavigationItemLink";
 import NavigationItemParagraph from "./NavigationItemParagraph/NavigationItemParagraph";
 const NavigationItems = props => {
-
   return (
     <ul className={classes.NavigationItems}>
       <NavigationItemParagraph>About</NavigationItemParagraph>

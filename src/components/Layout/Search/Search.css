@@ -9,6 +9,7 @@
   display: flex;
 }
 
+
 .Search input[type="text"] {
   text-indent: 17px;
   background-image: url(../../../assests/search.png);
@@ -30,3 +31,7 @@
   margin-bottom: 10px;
   height: 50%;
 }
+
+.Search input[type="text"]:hover, .Search input[type="text"]:focus{
+  border-bottom: 1px solid #424242;
+ }

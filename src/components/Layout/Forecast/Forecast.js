@@ -3,7 +3,6 @@ import ForecastPerDay from "./ForecastPerDay/ForecastPerDay";
 import classes from "./Forecast.css";
 import {getWeekday, getDate} from '../../../shared/utility';
 const forecast = props => {
-  console.log("props.currentForecast-Forecast", props.currentForecast);
 
   let forecastPerDay = Object.keys(props.currentForecast).map(index => {
     return [...Array(props.currentForecast[index])].map(object => {
