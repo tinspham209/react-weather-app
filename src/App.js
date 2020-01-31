@@ -1,7 +1,9 @@
 import React from "react";
 import AppLayout from "./containers/AppLayout/AppLayout";
 import Layout from "./hoc/Layout/Layout";
-function App() {
+
+const App = props => {
+
   return (
     <div>
       <Layout>
@@ -9,6 +11,6 @@ function App() {
       </Layout>
     </div>
   );
-}
+};
 
 export default App;
