@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "http://quay189.github.io/react-weather-app",
   "dependencies": {
-    "@babel/core": "7.7.4",
+    "@babel/core": "7.24.3",
     "@babel/runtime": "^7.8.3",
     "@svgr/webpack": "4.3.3",
     "@testing-library/jest-dom": "^4.2.4",
